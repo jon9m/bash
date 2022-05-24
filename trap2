@@ -1,0 +1,32 @@
+#!/bin/bash
+
+int_count=0
+
+function no_int(){
+	let int_count++
+	echo
+		if [[ $int_count == 1 ]]; then
+			echo Don\'t do that!
+		elif [[ $int_count == 2 ]]; then
+			echo If you are sure, do it once more
+		else
+			echo Okay Bye!
+		exit
+	fi
+}
+
+function countdown(){
+	COUNTER=1000
+	while true; 
+		do
+			COUNTER=$(( COUNTER - 1 ))
+			sleep 0.5
+			echo COUNTER is now $COUNTER
+		done
+}
+
+trap no_int INT
+
+countdown
+
+
