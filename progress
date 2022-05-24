@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+COUNTER=$1
+COUNTER=$(( COUNTER * 10 ))
+MSG='';
+
+while [ $COUNTER -gt 0 ]
+do	
+	MSG="${COUNTER} seconds remainning"
+	echo -n ${MSG}
+	COUNTER=$(( COUNTER - 1 ))
+	sleep 0.3
+	echo -en ${MSG//?/"\b"}
+done
+
+exit 0
